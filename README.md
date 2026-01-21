@@ -67,7 +67,8 @@ make install SIGNING_IDENTITY="Apple Development: Your Name (XXXXXXXXXX)"
 ```bash
 open ~/Applications/ClaudeZellijWhip.app --args notify \
   --title "Claude Code" \
-  --message "Test notification"
+  --message "Test notification" \
+  --folder "my-project"
 ```
 
 ### Claude Code hooks
@@ -82,20 +83,22 @@ Add to `~/.claude/settings.json`:
         "matcher": "idle_prompt",
         "hooks": [{
           "type": "command",
-          "command": "open ~/Applications/ClaudeZellijWhip.app --args notify --title 'Claude Code' --message 'Waiting for your input'"
+          "command": "open ~/Applications/ClaudeZellijWhip.app --args notify --title 'Claude Code' --message 'Waiting for your input' --folder ${CLAUDE_PROJECT_DIR##*/}"
         }]
       },
       {
         "matcher": "permission_prompt",
         "hooks": [{
           "type": "command",
-          "command": "open ~/Applications/ClaudeZellijWhip.app --args notify --title 'Claude Code' --message 'Permission needed'"
+          "command": "open ~/Applications/ClaudeZellijWhip.app --args notify --title 'Claude Code' --message 'Permission needed' --folder ${CLAUDE_PROJECT_DIR##*/}"
         }]
       }
     ]
   }
 }
 ```
+
+The `--folder` parameter appends the project folder name to the notification title (e.g., "Claude Code [my-project]"), using the `CLAUDE_PROJECT_DIR` environment variable provided by Claude Code.
 
 ## How It Works
 
