@@ -1,6 +1,8 @@
 # claude-zellij-whip
 
-Smart macOS notifications for Claude Code running in Ghostty + Zellij. When you click a notification, it focuses Ghostty, navigates to the correct Zellij tab, and focuses the exact pane where Claude Code is waiting.
+Smart macOS notifications for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) running in [Ghostty](https://ghostty.org/) + [Zellij](https://zellij.dev/). When you click a notification, it focuses Ghostty, navigates to the correct Zellij tab, and focuses the exact pane where Claude Code is waiting.
+
+![screenshot](screenshot.png)
 
 ## The Problem
 
@@ -73,7 +75,7 @@ open ~/Applications/ClaudeZellijWhip.app --args notify \
 
 ### Claude Code hooks
 
-Add to `~/.claude/settings.json`:
+Add to `~/.claude/settings.json` (see [hooks documentation](https://docs.anthropic.com/en/docs/claude-code/hooks)):
 
 ```json
 {
@@ -133,7 +135,8 @@ claude-zellij-whip/
 │   ├── FocusManager.swift      # Ghostty/Zellij focus logic
 │   └── ZellijContext.swift     # Tab name extraction
 ├── Resources/
-│   └── Info.plist              # App bundle config (LSUIElement)
+│   ├── Info.plist              # App bundle config (LSUIElement)
+│   └── AppIcon.icns            # App icon (shows in notifications)
 ├── Package.swift
 └── Makefile
 ```
