@@ -1,19 +1,17 @@
-import ArgumentParser
+import AppKit
 
-@main
-struct ClaudeZellijWhip: ParsableCommand {
-  static let configuration = CommandConfiguration(
-    commandName: "claude-zellij-whip",
-    abstract: "A Swift command-line tool"
-  )
+let app = NSApplication.shared
+let args = CommandLine.arguments
 
-  @Flag(name: .shortAndLong, help: "Enable verbose output")
-  var verbose: Bool = false
-
-  mutating func run() throws {
-    if verbose {
-      print("Running in verbose mode")
-    }
-    print("Hello, world!")
+if args.count > 1 && args[1] == "notify" {
+  Task {
+    await sendNotification(args: Array(args.dropFirst(2)))
+    try? await Task.sleep(for: .milliseconds(500))
+    await MainActor.run { app.terminate(nil) }
   }
+  app.run()
+} else {
+  let delegate = AppDelegate()
+  app.delegate = delegate
+  app.run()
 }

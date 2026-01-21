@@ -10,7 +10,17 @@
       "WebFetch(domain:ghostty.org)",
       "WebFetch(domain:hrtval.medium.com)",
       "WebFetch(domain:fluffy.es)",
-      "WebFetch(domain:smallsharpsoftwaretools.com)"
+      "WebFetch(domain:smallsharpsoftwaretools.com)",
+      "Bash(git -C /Users/rvcas/thelab/me/claude-zellij-whip log --oneline -10)",
+      "Bash(terminal-notifier:*)",
+      "Bash(zellij:*)",
+      "Bash(env)",
+      "Bash(/usr/bin/log:*)",
+      "Bash(open:*)",
+      "Bash(make install:*)",
+      "Bash(~/Applications/ClaudeZellijWhip.app/Contents/MacOS/claude-zellij-whip notify:*)",
+      "WebFetch(domain:zellij.dev)",
+      "WebFetch(domain:docs.rs)"
     ]
   }
 }

@@ -6,15 +6,9 @@ import PackageDescription
 let package = Package(
   name: "claude-zellij-whip",
   platforms: [.macOS(.v13)],
-  dependencies: [
-    .package(url: "https://github.com/apple/swift-argument-parser", from: "1.5.0")
-  ],
   targets: [
     .executableTarget(
-      name: "claude-zellij-whip",
-      dependencies: [
-        .product(name: "ArgumentParser", package: "swift-argument-parser")
-      ]
+      name: "claude-zellij-whip"
     )
   ]
 )
